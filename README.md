@@ -24,10 +24,12 @@ Replace `/path/to/mangohud-config` with your actual repo path.
 ### Option 2: Pass exec parameters directly
 
 ```
-MANGOHUD=1 MANGOHUD_CONFIG="exec=/path/to/mangohud-config/scripts/max_cpu_core.sh,exec_name=CPU_MAX" %command%
+MANGOHUD=1 MANGOHUD_CONFIG="legacy_layout=0,exec=/path/to/mangohud-config/scripts/max_cpu_core.sh,exec_name=CPU_MAX" %command%
 ```
 
 This bypasses the config file and sets the exec parameters at launch time.
+
+**Note:** The `legacy_layout=0` parameter is required for the `exec` functionality to work properly.
 
 ## License
 
