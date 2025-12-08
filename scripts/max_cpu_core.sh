@@ -22,7 +22,7 @@ read_current_stats() {
         [[ $cpu =~ ^cpu[0-9]+$ ]] || continue
 
         # Calculate total and active times
-        # Total = sum of all fields
+        # Total = sum of all fields (guest and guest_nice already included in user and nice, don't double-count)
         # Active = total - idle - iowait (we want actual CPU work, not I/O wait)
         local total=$((user + nice + system + idle + iowait + irq + softirq + steal))
         local active=$((user + nice + system + irq + softirq + steal))

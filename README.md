@@ -24,12 +24,14 @@ Replace `/path/to/mangohud-config` with your actual repo path.
 ### Option 2: Pass exec parameters directly
 
 ```
-MANGOHUD=1 MANGOHUD_CONFIG="legacy_layout=0,exec=/path/to/mangohud-config/scripts/max_cpu_core.sh,exec_name=CPU_MAX" %command%
+MANGOHUD=1 MANGOHUD_CONFIG="legacy_layout=0,font_size_secondary=24,custom_text=CPU MAX,exec=/path/to/mangohud-config/scripts/max_cpu_core.sh" %command%
 ```
 
 This bypasses the config file and sets the exec parameters at launch time.
 
-**Note:** The `legacy_layout=0` parameter is required for the `exec` functionality to work properly.
+**Note:**
+- The `legacy_layout=0` parameter is required for the `exec` functionality to work properly.
+- You'll need to set `font_size_secondary` if you want `custom_text` or `exec` output to match `font_size` (`font_size` is set to 24 by default, custom labels and metrics are set to .55 * `font_size` for some reason).
 
 ## License
 
