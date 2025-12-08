@@ -21,7 +21,7 @@ MANGOHUD=1 MANGOHUD_CONFIG=/path/to/mangohud-config/config %command%
 
 Replace `/path/to/mangohud-config` with your actual Mangohud config path.
 
-Config should have four extra params, a custom label and the path to this script
+Config should have four extra params:
 
 ```
 legacy_layout=0 # required for exec to work
