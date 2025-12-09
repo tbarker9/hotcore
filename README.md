@@ -7,20 +7,20 @@ Displays the highest CPU core utilization percentage. Useful for identifying CPU
 ### Homebrew (Recommended)
 
 ```bash
-brew tap tbarker/hotcore
+brew tap tbarker9/hotcore
 brew install hotcore
 ```
 
 Or in one command:
 ```bash
-brew install tbarker/hotcore/hotcore
+brew install tbarker9/hotcore/hotcore
 ```
 
 ### Manual Installation
 
 Clone this repository:
 ```bash
-git clone https://github.com/tbarker/hotcore.git
+git clone https://github.com/tbarker9/hotcore.git
 cd hotcore
 ```
 
