@@ -1,42 +1,70 @@
-# mangohud-config
+# hotcore
 
-Displays the highest CPU core utilization percentage in MangoHUD overlay. Useful for identifying CPU bottlenecks while gaming. Tested on Bazzite
+Displays the highest CPU core utilization percentage. Useful for identifying CPU bottlenecks while gaming with MangoHUD overlay. Tested on Bazzite.
+
+## Installation
+
+### Homebrew (Recommended)
+
+```bash
+brew tap tbarker/hotcore
+brew install hotcore
+```
+
+Or in one command:
+```bash
+brew install tbarker/hotcore/hotcore
+```
+
+### Manual Installation
+
+Clone this repository:
+```bash
+git clone https://github.com/tbarker/hotcore.git
+cd hotcore
+```
 
 ## Usage
 
 Test the script:
 ```bash
-./scripts/max_cpu_core.sh
+hotcore
+# Or if installed manually:
+./hotcore
 ```
 
-## Steam Launch Options
+## Steam Launch Options (MangoHUD Integration)
 
 ### Option 1: Use config file
 
 Add to a game's Steam launch options:
 
 ```
-MANGOHUD=1 MANGOHUD_CONFIG=/path/to/mangohud-config/config %command%
+MANGOHUD=1 MANGOHUD_CONFIG=/path/to/your/mangohud.conf %command%
 ```
 
-Replace `/path/to/mangohud-config` with your actual Mangohud config path.
-
-Config should have four extra params:
+Your MangoHUD config file should include:
 
 ```
-legacy_layout=0 # required for exec to work
-font_size_secondary=24  # optional, but makes the custom label and exec output the same size as other params 
-custom_text=CPU MAX # custom label
-exec=/path/to/mangohud-config/scripts/max_cpu_core.sh # path to script in this repo
+legacy_layout=0              # required for exec to work
+font_size_secondary=24       # optional, makes labels consistent size
+custom_text=CPU MAX          # label for the metric
+exec=hotcore                 # if installed via Homebrew
+# OR for manual installation:
+# exec=/path/to/hotcore/hotcore
 ```
 
-### Option 2: Pass exec parameters directly
+### Option 2: Pass parameters directly
 
+If you installed via Homebrew:
 ```
-MANGOHUD=1 MANGOHUD_CONFIG="legacy_layout=0,font_size_secondary=24,custom_text=CPU MAX,exec=/path/to/mangohud-config/scripts/max_cpu_core.sh" %command%
+MANGOHUD=1 MANGOHUD_CONFIG="legacy_layout=0,font_size_secondary=24,custom_text=CPU MAX,exec=hotcore" %command%
 ```
 
-This bypasses the config file and sets the exec parameters at launch time.
+If you installed manually:
+```
+MANGOHUD=1 MANGOHUD_CONFIG="legacy_layout=0,font_size_secondary=24,custom_text=CPU MAX,exec=/path/to/hotcore/hotcore" %command%
+```
 
 ## License
 
